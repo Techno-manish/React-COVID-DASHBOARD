@@ -1,0 +1,188 @@
+.state-wise-route {
+  background: #161625;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.state-wise-body-container {
+  width: 90%;
+  max-width: 1146px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 25px;
+}
+.loader-container {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.state-name-tested-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+.state-name-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  /* width: 156px; */
+  /* height: 32px; */
+  background: rgba(2, 132, 199, 0.16);
+  border-radius: 16px;
+}
+.state-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0ea5e9;
+  margin: 0px;
+  /* text-align: center; */
+}
+.state-updated-date {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #cbd5e1;
+}
+.state-tested-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #94a3b8;
+  margin: 0px;
+}
+.state-tested-count {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: #94a3b8;
+  margin-top: 5px;
+}
+.state-tested-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+/* .bar {
+  background-color: transparent;
+  border-radius: 8px 8px 0px 0px;
+  width: 20px;
+} */
+
+.bar-container {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+}
+.district-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #ff073a;
+}
+.district-item {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+.district-count {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #94a3b8;
+  width: 40%;
+}
+.district-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #94a3b8;
+  width: 50%;
+  /* margin-left: 10px; */
+}
+.districts-list {
+  padding-left: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+}
+.top-districts-container {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .state-name-box {
+    border-radius: 28px;
+    padding: 10px 30px 10px 30px;
+    /* width: 280px; */
+    /* height: 64px; */
+  }
+  .district-item {
+    width: 25%;
+  }
+  .district-heading {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .district-count {
+    font-size: 24px;
+    line-height: 28px;
+    width: 40%;
+  }
+  .district-name {
+    font-size: 16px;
+    line-height: 19px;
+    /* margin-left: 15px; */
+    width: 50%;
+  }
+  .state-name {
+    font-family: 'Roboto';
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 48px;
+  }
+  .state-updated-date {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .state-tested-name {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .state-tested-count {
+    font-size: 24px;
+    line-height: 24px;
+  }
+  .bar-container {
+    height: 320px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
