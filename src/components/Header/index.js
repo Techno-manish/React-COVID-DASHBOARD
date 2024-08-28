@@ -1,88 +1,74 @@
 import {Component} from 'react'
 import {Link} from 'react-router-dom'
-import {CgPlayList} from 'react-icons/cg'
-import {IoMdClose} from 'react-icons/io'
 import './index.css'
 
 class Header extends Component {
-  state = {showNavbar: false}
-  //   const {onClickMenuIcon} = props
-  //   const onClickIcon = () => {
-  //     onClickMenuIcon()
-  //   }
+  state = {isToggleActive: false}
 
-  onClickMenuIcon = () => {
-    this.setState({
-      showNavbar: true,
-    })
+  whenToggleButtonClick = () => {
+    this.setState(prevState => ({isToggleActive: !prevState.isToggleActive}))
   }
 
-  onClickCloseIcon = () => {
-    this.setState({
-      showNavbar: false,
-    })
-  }
+  showDropDownMenu = () => (
+    <>
+      <ul className="navBar">
+        <Link to="/" className="link">
+          <li className="item">Home</li>
+        </Link>
+
+        <li className="item">Vaccination</li>
+
+        <Link to="/about" className="link">
+          <li className="item">About</li>
+        </Link>
+      </ul>
+    </>
+  )
 
   render() {
-    const {showNavbar} = this.state
-    const pathName = window.location.pathname
-    const homeClass = pathName === '/' ? 'menu-active' : ''
-    const aboutClass = pathName === '/about' ? 'menu-active' : ''
-    const vaccinationClass = pathName === '/vaccination' ? 'menu-active' : ''
+    const {isToggleActive} = this.state
+    console.log(isToggleActive)
     return (
-      <nav className="navbar">
-        <div className="navbar-content-container">
-          <Link to="/" className="link-style">
-            <h1 className="nav-heading">
-              COVID19<span className="nav-heading-span">INDIA</span>
+      <>
+        <div className="header-container">
+          <Link to="/" className="link">
+            <h1 className="logo">
+              COVID19 <span className="india">INDIA </span>
             </h1>
           </Link>
-          <ul className="desktop-nav-container">
-            <Link to="/" className="link-style">
-              <li className={`desktop-nav-item ${homeClass}`}>Home</li>
+          <ul className="navBar">
+            <Link to="/" className="link">
+              <li className="item">Home</li>
             </Link>
-            <Link to="/vaccination" className="link-style">
-              <li className={`desktop-nav-item ${vaccinationClass}`}>
-                Vaccination
-              </li>
-            </Link>
-            <Link to="/about" className="link-style">
-              <li className={`desktop-nav-item ${aboutClass}`}>About</li>
+
+            <li className="item">Vaccination</li>
+
+            <Link to="/about" className="link">
+              <li className="item">About</li>
             </Link>
           </ul>
-          <button
-            type="button"
-            className="mobile-head-button"
-            onClick={this.onClickMenuIcon}
-          >
-            <CgPlayList className="mobile-head-icon" />
-          </button>
         </div>
-        {showNavbar && (
-          <div className="mobile-nav-show">
-            <ul className="mobile-bar-list">
-              <Link to="/" className="nav-tab-links">
-                <li className={`mobile-bar-item ${homeClass}`}>Home</li>
-              </Link>
-              <Link to="/vaccination" className="nav-tab-links">
-                <li className={`mobile-bar-item ${vaccinationClass}`}>
-                  Vaccination
-                </li>
-              </Link>
-              <Link to="/about" className="nav-tab-links">
-                <li className={`mobile-bar-item ${aboutClass}`}>About</li>
-              </Link>
-            </ul>
+        <div className="mobile-menu">
+          <div className="mobile-header-container">
+            <Link to="/" className="link">
+              <h1 className="logo">
+                COVID19 <span className="india">INDIA </span>
+              </h1>
+            </Link>
             <button
               type="button"
-              className="close-button"
-              onClick={this.onClickCloseIcon}
+              className="toggle-button"
+              onClick={this.whenToggleButtonClick}
             >
-              <IoMdClose className="close-icon" />
+              <img src="/img/add-to-queue 1.png" alt="menu" />
             </button>
           </div>
-        )}
-      </nav>
+
+          <div className="menu">
+            {isToggleActive ? this.showDropDownMenu() : ''}
+          </div>
+        </div>
+      </>
     )
   }
 }
