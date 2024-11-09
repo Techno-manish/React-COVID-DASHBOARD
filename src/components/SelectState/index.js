@@ -1,5 +1,5 @@
 import {Component} from 'react'
-import MySelect from './MySelect'
+import MySelect from '../MySelect'
 import './index.css'
 
 const options = [
@@ -22,18 +22,16 @@ const options = [
 ]
 
 class SelectState extends Component {
-  state
-
   componentDidMount() {
     this.getStatesData()
   }
 
   getStatesData = async () => {
     const url = 'https://apis.ccbp.in/covid19-state-ids'
-    const options = {
+    const option = {
       method: 'GET',
     }
-    const response = await fetch(url, options)
+    const response = await fetch(url, option)
     const fetchedData = await response.json()
     console.log(fetchedData)
   }
@@ -45,12 +43,13 @@ class SelectState extends Component {
   }
 
   render() {
+    const {selected} = this.state
     return (
       <div className="select-state-box">
         <MySelect
           options={options}
-          onChange={handleChange}
-          selected={this.state.selected}
+          onChange={this.handleChange}
+          selected={selected}
         />
       </div>
     )
